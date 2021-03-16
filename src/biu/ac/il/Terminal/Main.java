@@ -1,5 +1,8 @@
 package biu.ac.il.Terminal;
 
+import biu.ac.il.Terminal.exoressions.PipeExpression;
+import biu.ac.il.Terminal.exoressions.TerminalExpression;
+
 import java.util.Scanner;
 
 public class Main {
