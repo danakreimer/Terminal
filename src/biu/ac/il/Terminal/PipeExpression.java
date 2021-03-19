@@ -11,7 +11,7 @@ public class PipeExpression implements Expression {
 
     @Override
     public boolean interpret() {
-        String[] expressions = expression.split("/|");
+        String[] expressions = expression.split("\\s\\|\\s");
         ArrayList<Boolean> results = new ArrayList<>();
         for (String ex: expressions) {
             results.add(new TerminalExpression(ex).interpret());

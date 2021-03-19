@@ -29,6 +29,10 @@ public class UserManager {
     }
 
     public User login(String key) {
+        if (!users.containsKey(key)) {
+            return null;
+        }
+
         User u = users.get(key);
         this.user = u;
 

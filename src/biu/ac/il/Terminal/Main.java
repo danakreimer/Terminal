@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Welcome to the non-official Bar Ilan Terminal");
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print(System.getProperty("user.dir") + ">");
         String command = scanner.nextLine();
         while (!command.equals("exit")) {
             boolean result;
@@ -17,10 +18,7 @@ public class Main {
                 result = new TerminalExpression(command).interpret();
             }
 
-            if (!result) {
-                System.out.println("Command execution failed!");
-            }
-
+            System.out.print(System.getProperty("user.dir") + ">");
             command = scanner.nextLine();
         }
     }

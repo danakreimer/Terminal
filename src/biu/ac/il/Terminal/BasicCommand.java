@@ -1,6 +1,7 @@
 package biu.ac.il.Terminal;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -18,11 +19,7 @@ abstract class BasicCommand extends Command {
         String[] baseCommand = new String[]{"cmd", "/c", command};
         String[] fullCommand = Stream.concat(Arrays.stream(baseCommand), Arrays.stream(args))
                 .toArray(String[]::new);
-        Process process = Runtime.getRuntime().exec(fullCommand);
-                //,
-//               null,
-//               new File("C:\\Users\\") CWD
-//        );
+        Process process = Runtime.getRuntime().exec(fullCommand, null, new File(System.getProperty("user.dir")));
         int exitCode = process.waitFor();
         String output = this.getOutput(process);
 
@@ -35,6 +32,10 @@ abstract class BasicCommand extends Command {
         StringBuilder lines = new StringBuilder();
         while ((line = reader.readLine()) != null) {
             lines.append(line);
+
+            if (lines.toString().length() > line.length()) {
+                lines.append("\n");
+            }
         }
 
         return lines.toString();

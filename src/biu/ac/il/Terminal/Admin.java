@@ -7,10 +7,9 @@ public class Admin extends Guest implements Role {
     @Override
     public String[] getAllowedCommands() {
         String[] parentCommand = super.getAllowedCommands();
-        String[] adminCommands = new String[] { "calc" };
-        Stream adminStream = Arrays.stream(adminCommands);
-        Stream parentStream =  Arrays.stream(parentCommand);
+        String[] adminCommands = new String[] { "osinfo" };
 
-        return (String[]) Stream.concat(adminStream, parentStream).toArray();
+        return Stream.concat(Arrays.stream(parentCommand), Arrays.stream(adminCommands))
+                .toArray(String[]::new);
     }
 }
