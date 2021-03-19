@@ -26,7 +26,6 @@ public class CommandFactoryExternalDecorator {
         return Holder.inst;
     }
 
-
     public void start() {
         File file = new File(PACKAGE_NAME);
         File[] files = file.listFiles();
