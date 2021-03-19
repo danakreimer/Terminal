@@ -6,6 +6,11 @@ public class HistoryCommand extends BasicCommand {
     }
 
     @Override
+    public String getCommand() {
+        return null;
+    }
+
+    @Override
     public String execute() {
         return null;
     }

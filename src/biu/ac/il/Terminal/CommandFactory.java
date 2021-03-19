@@ -9,7 +9,7 @@ public class CommandFactory extends Factory<Command> {
             case "cd":
                 return new CDCommand(args);
             case "jobs":
-                return new JobsCommand(args);
+                //return new JobsCommand(args);
             case "history":
                 return new HistoryCommand(args);
             default:
