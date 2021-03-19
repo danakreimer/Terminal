@@ -4,6 +4,13 @@ Terminal is a Java command line terminal, built with use of design patterns, and
 
 ## Installation
 
+- Create a config.json file in the project's root and add your [omdb api key](http://www.omdbapi.com/):
+```json
+{
+  "omdbAPIKey": "<omdb-api-key> - from http://www.omdbapi.com/"
+}
+```
+
 - Download JDK >= 1.8
 - Run the JAR file
 
@@ -13,6 +20,9 @@ Terminal is a Java command line terminal, built with use of design patterns, and
 ls
 cd
 history
+movie <movie-name>
+calc <expression>
+login <user>
 ```
 ```
 movie titanic
