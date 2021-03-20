@@ -8,6 +8,8 @@ public class CommandFactory extends Factory<Command> {
                 return new HelpCommand(args);
             case "ls":
                 return new LsCommand(args);
+            case "history":
+                return new HistoryCommand(args);
             case "cd":
                 return new CDCommand(args);
             case "login":
@@ -18,8 +20,6 @@ public class CommandFactory extends Factory<Command> {
                 return new PrintCommand(args);
             case "calc":
                 return new CalcCommand(args);
-            case "history":
-                return new HistoryCommand(args);
             case "movie":
                 return new IMDBCommand(args);
             default:

@@ -1,14 +1,8 @@
 package biu.ac.il.Terminal;
 
 public class TerminalExpression implements Expression {
-    private String expression;
-
-    public TerminalExpression(String expression) {
-        this.expression = expression;
-    }
-
     @Override
-    public boolean interpret() {
+    public boolean interpret(String expression) {
         String command;
         String[] args;
 
@@ -30,15 +24,5 @@ public class TerminalExpression implements Expression {
         }
 
         return true;
-    }
-
-    @Override
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
-    @Override
-    public String getExpression() {
-        return this.expression;
     }
 }

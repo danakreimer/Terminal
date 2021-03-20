@@ -9,11 +9,11 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 public class JSONReader {
-
+    public static String cwd;
     private ScriptEngine engine;
 
     public static Map<String, Object> parseJson(String filename) throws IOException, ScriptException {
-        String json = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir"), filename)));
+        String json = new String(Files.readAllBytes(Paths.get(cwd, filename)));
 
         return JSONToMap(json);
     }
