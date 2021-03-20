@@ -11,7 +11,8 @@ public class UserManager {
         super();
         Role[] adminRoles = { new Admin() };
         Role[] guestRoles = { new Guest() };
-        users.put("admin", new User(adminRoles));
+        users.put("dana", new User(adminRoles));
+        users.put("polina", new User(adminRoles));
         users.put("guest", new User(guestRoles));
     }
 
