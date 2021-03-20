@@ -12,10 +12,11 @@ public class Main {
         String command = scanner.nextLine();
         while (!command.equals("exit")) {
             boolean result;
+            Expression expression = new TerminalExpression(command);
             if (command.contains("|")) {
-                result = new PipeExpression(command).interpret();
+                result = new PipeExpression(expression).interpret();
             } else {
-                result = new TerminalExpression(command).interpret();
+                result = expression.interpret();
             }
 
             System.out.print(System.getProperty("user.dir") + ">");

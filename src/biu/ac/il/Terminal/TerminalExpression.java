@@ -31,4 +31,14 @@ public class TerminalExpression implements Expression {
 
         return true;
     }
+
+    @Override
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public String getExpression() {
+        return this.expression;
+    }
 }
