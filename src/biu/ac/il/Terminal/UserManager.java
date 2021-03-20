@@ -16,7 +16,7 @@ public class UserManager {
         users.put("guest", new User(guestRoles));
     }
 
-    public static UserManager getInsance() {
+    public static UserManager getInstance() {
         if (instance == null) {
             instance = new UserManager();
             instance.login("guest");

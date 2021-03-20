@@ -8,7 +8,7 @@ public class HelpCommand extends AdvancedCommand {
 
     @Override
     public String execute() {
-        String[] availableCommands = UserManager.getInsance().getUser().getAvailableCommands();
+        String[] availableCommands = UserManager.getInstance().getUser().getAvailableCommands();
 
         return "Available Commands: \n" + String.join("\n", availableCommands);
     }

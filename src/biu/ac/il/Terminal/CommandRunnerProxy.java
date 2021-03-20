@@ -9,7 +9,7 @@ public class CommandRunnerProxy implements CommandExecutor {
     }
 
     public void runCommand(String cmd, String[] args) throws UnknownCommandException, NoPermissionsException, CommandExecutionException {
-        if (!UserManager.getInsance().getUser().canRunCommand(cmd)) {
+        if (!UserManager.getInstance().getUser().canRunCommand(cmd)) {
             throw new NoPermissionsException(cmd);
         }
 

@@ -8,7 +8,7 @@ public class LogInCommand extends AdvancedCommand {
 
     @Override
     public String execute() {
-        UserManager userManager = UserManager.getInsance();
+        UserManager userManager = UserManager.getInstance();
 
         String credentials = args.length > 0 ? args[0] : null;
         User user = userManager.login(credentials);
