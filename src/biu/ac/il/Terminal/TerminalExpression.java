@@ -9,7 +9,7 @@ public class TerminalExpression implements Expression {
         // Separate the command from the arguments
         String arr[] = expression.split(" ", 2);
 
-        command = arr[0];   //the
+        command = arr[0];
         String theRest = arr.length > 1 ? arr[1] : "";
 
         // Place the arguments in a string array

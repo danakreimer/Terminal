@@ -19,8 +19,10 @@ public class CommandFactoryExternalDecorator extends CommandFactoryDecorator {
 
     @Override
     protected Command create(String command, String[] args) throws UnknownCommandException {
+        // Check if the command exists in the commands dictionary
         if (externalCommandsMap.containsKey(command)) {
             try {
+                // Create the command instance according to the dictionary mapping
                 Command c = (Command) externalCommandsMap.get(command).newInstance((Object) args);
 
                 return c;
@@ -29,6 +31,7 @@ public class CommandFactoryExternalDecorator extends CommandFactoryDecorator {
             }
         }
 
+        // If the command doesn't exist in the dictionary we create it using the command factory
         return super.create(command, args);
     }
 
@@ -38,8 +41,11 @@ public class CommandFactoryExternalDecorator extends CommandFactoryDecorator {
 
         if (files == null) return;
 
+        // Go through all the external directory and load all commands from all files inside it
         for (File f : files) {
+            // Check if the current file is in the right format
             if (f.getName().endsWith(".java")) {
+                // Read the file and extract the command name and it's constructor from it, so it can be added to the dictionary
                 try {
                     // Convert File to a URL
                     URL url = file.toURI().toURL();
@@ -62,6 +68,7 @@ public class CommandFactoryExternalDecorator extends CommandFactoryDecorator {
                         }
                     }
 
+                    // Add the external command to the dictionary
                     externalCommandsMap.put(name, constructor);
                 } catch (Exception e) {
                     e.printStackTrace();

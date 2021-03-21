@@ -14,6 +14,7 @@ public class IMDBFacade {
             return null;
         }
 
+        // Build the string containing the wanted fields using the movie object
         return "Movie: " + movie.getTitle() + ", Year: " + movie.getYear() + ", Score: " + movie.getScore()
                 + ", Director: " + movie.getDirector() + ", Country: " + movie.getCountry();
     }

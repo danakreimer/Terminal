@@ -10,6 +10,7 @@ public class IMDBCommand extends AdvancedCommand {
 
     @Override
     public String execute() {
+        // Convert all spaces into %20 to match the json structure
         String movie = this.imdbFacade.getMovieData(String.join("%20", this.args));
 
         if (movie == null) {

@@ -12,6 +12,7 @@ public class IMDBApi {
     public IMDBApi() {
         Map<String, Object> config;
         try {
+            // Extract the key from the configuration file
             config = JSONReader.parseJson("config.json");
             this.apiKey = (String) config.get("omdbAPIKey");
         } catch (IOException | ScriptException e) {
@@ -25,7 +26,9 @@ public class IMDBApi {
         InputStream is = null;
         Movie m = null;
         try {
+            // Create the request to the IDBApi using the request key
             url = new URL("http://www.omdbapi.com/?t=" + movieName + "&apikey=" + this.apiKey);
+            // Use streams to work better with arrays - using the arrow anonymous function
             is = url.openStream();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(is));
@@ -36,7 +39,9 @@ public class IMDBApi {
                 json.append(inputLine);
             }
 
+            // Convert the json we got from the IMDBApi into a map
             Map<String, Object> jsonMap = JSONReader.JSONToMap(json.toString());
+            // Build the movie object using the map
             m = new Movie(
                     (String) jsonMap.get("Title"),
                     (String) jsonMap.get("Actors"),

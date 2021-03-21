@@ -16,7 +16,7 @@ public class CalcCommand extends AdvancedCommand {
         // Normalize expression spaces
         String expression = String.join(" ", args);
 
-        // Calculate the expression
+        // Calculate the expression using javascript external code
         ScriptEngineManager mgr = new ScriptEngineManager();
         ScriptEngine engine = mgr.getEngineByName("JavaScript");
         String result;

@@ -7,6 +7,7 @@ public class HelpCommand extends AdvancedCommand {
     }
 
     @Override
+    // Print all the user's allowed commands
     public String execute() {
         String[] availableCommands = UserManager.getInstance().getUser().getAvailableCommands();
 

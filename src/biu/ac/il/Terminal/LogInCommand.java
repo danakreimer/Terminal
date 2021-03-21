@@ -8,9 +8,12 @@ public class LogInCommand extends AdvancedCommand {
 
     @Override
     public String execute() {
+        // Get the current connected user in the terminal
         UserManager userManager = UserManager.getInstance();
 
+        // Check the user's name
         String credentials = args.length > 0 ? args[0] : null;
+        // If the user exists in the system - get the user in
         User user = userManager.login(credentials);
 
         if (user == null) {

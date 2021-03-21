@@ -9,12 +9,15 @@ public class PipeExpressionDecorator extends ExpressionDecorator {
 
     @Override
     public boolean interpret(String toInterpret) {
+        // If it's an atomic expression we can interpret it directly
         if (!toInterpret.contains("|")) {
             return expression.interpret(toInterpret);
         }
 
         String[] expressions = toInterpret.split("\\s\\|\\s");
         ArrayList<Boolean> results = new ArrayList<>();
+
+        // Send each part of expression to be interpreted
         for (String ex : expressions) {
             results.add(expression.interpret(ex));
         }
